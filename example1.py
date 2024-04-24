@@ -1,4 +1,4 @@
-import asyncio
+
 from elasticsearch import AsyncElasticsearch, Elasticsearch
 import pandas as pd
 from pprint import pprint
@@ -12,9 +12,9 @@ def show_info():
     print(es2.info().body)
 
 
-def create_index(index_name, mappings):
+def create_index(index_name, mapping):
     try:
-        es2.indices.create(index=index_name, mappings=mappings)
+        es2.indices.create(index=index_name, mapping=mapping)
         print("Index created successfully")
     except Exception as e:
         print(e)
@@ -49,10 +49,10 @@ def store_data(index_name):
                 "wiki_page": row["Wiki Page"]
             }
             print(f"Storing document {i}")
-            es2.index(index="movies", id=i, document=doc)
+            es2.index(index=index_name, id=str(i), document=doc)
         print("Data stored successfully")
-        es2.indices.refresh(index="movies")
-        print(es2.count(index="movies", format="json"))
+        es2.indices.refresh(index=index_name)
+        print(es2.count(index=index_name, format="json"))
     except Exception as e:
         print(e)
 
@@ -93,6 +93,6 @@ if __name__ == "__main__":
 
     show_info()
     # asyncio.run(main())
-    # create_index("movies", mappings=mappings)
-    # store_data("movies")
-    search_items()
+    create_index("movies", mapping=mappings)
+    store_data(index_name="movies")
+    # search_items()

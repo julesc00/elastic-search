@@ -21,3 +21,9 @@ YouTube Official Elastic Community: [The Python Elasticsearch Series](https://ww
 
 ## Video 7 | ElasticCC: Whats New in the Python Elasticsearch Client
 [![Video 7 | ElasticCC: Whats New in the Python Elasticsearch Client](https://i.ytimg.com/vi/bA1H57VRmpY/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA6msJJtw8H3Dr6lrIUG0G8s41igQ)](https://www.youtube.com/watch?v=bA1H57VRmpY&list=PL_mJOmq4zsHa6jK_er1o2gSHStyCX5ghC&index=7&pp=iAQB "Video 7 | ElasticCC: Whats New in the Python Elasticsearch Client")
+
+
+# Local Installation
+
+1. Download Elasticsearch installation package from [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+2. Download and install Kibana locally: [Kibana](https://www.elastic.co/downloads/kibana)
