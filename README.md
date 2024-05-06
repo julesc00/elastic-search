@@ -27,3 +27,10 @@ YouTube Official Elastic Community: [The Python Elasticsearch Series](https://ww
 
 1. Download Elasticsearch installation package from [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
 2. Download and install Kibana locally: [Kibana](https://www.elastic.co/downloads/kibana)
+
+3. Docker installation: https://www.elastic.co/guide/en/kibana/current/docker.html
+
+### Run containers from Docker Desktop play button
+Remember to disable local Elasticsearch and Kibana services before running the containers.
+
+```sudo systemctl stop elasticsearch.service kibana.service```

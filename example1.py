@@ -1,11 +1,14 @@
-
+from decouple import config
 from elasticsearch import AsyncElasticsearch, Elasticsearch
 import pandas as pd
 from pprint import pprint
 
-host = "http://localhost:9200"
-es = AsyncElasticsearch(host)
-es2 = Elasticsearch(host)
+HOST = config("HOST")
+PORT = config("PORT")
+URL = f"{HOST}:{PORT}"
+USER = config("ELASTIC_USER")
+PASSWORD = config("PASSWORD")
+es2 = Elasticsearch(hosts=URL, basic_auth=(USER, PASSWORD), verify_certs=False)
 
 
 def show_info():
@@ -78,6 +81,7 @@ def search_items():
 
 
 if __name__ == "__main__":
+    print(URL)
     mappings = {
         "properties": {
             "title": {"type": "text", "analyzer": "english"},
@@ -92,7 +96,6 @@ if __name__ == "__main__":
     }
 
     show_info()
-    # asyncio.run(main())
-    create_index("movies", mapping=mappings)
-    store_data(index_name="movies")
-    # search_items()
+    # create_index("movies", mapping=mappings)
+    # store_data(index_name="movies")
+    search_items()
