@@ -98,6 +98,16 @@ def create_document(index, idx_id, document):
         log.error(e)
 
 
+def bulk_index_documents(index, documents):
+    """Bulk index documents in the Elasticsearch index."""
+    try:
+        success, failed = bulk(client=es_client, actions=documents, index=index)
+        log.info(f"Success: {success}, Failed: {failed}")
+    except RequestError as e:
+        log.error(f"Could not bulk index documents in the index: {index}")
+        log.error(e)
+
+
 def update_document(index, idx_id, document):
     """Update a document in the Elasticsearch index."""
     try:

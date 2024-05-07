@@ -1,5 +1,5 @@
 from decouple import config
-from elasticsearch import AsyncElasticsearch, Elasticsearch
+from elasticsearch import Elasticsearch
 import pandas as pd
 from pprint import pprint
 
